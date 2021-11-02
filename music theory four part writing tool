@@ -1,7 +1,7 @@
 c = input('scale: ')
 while c:
   sharps = ['C', 'G', 'D', 'A', 'E', 'B', 'F#']
-  s = ['A','E','B','F#','C#','G#','D#','A#']
+  s = ['E','B','F#','C#','G#','D#','A#']
   y = ['D','G','C','F','B♭','E♭','A♭']
   flat = ['F', 'B♭', 'E♭', 'A♭', 'D♭', 'G♭', 'C♭', ]
   a = ['C', 'C#', 'D', 'D#','E','F','F#','G','G#','A','A#','B']
@@ -35,13 +35,38 @@ while c:
           br.remove(word)
           br.append(word)
       x = [br[0], br[2], br[3], br[5], br[7], br[8], br[11], br[0]]
+  for word in x:
+    for chord in x:
+      
+      if word != chord and word in chord:
+        if word == 'C':
+          x[x.index(word)] = 'B#'
+          break
+        if word == 'F':
+          x[x.index(word)] = 'E#'
+          break
   print(','.join(x))
-  print('I:', x[0]+'/'+x[2]+'/'+x[4])
-  print('II:', x[1]+'/'+x[3]+'/'+x[5])
-  print('III:', x[2]+'/'+x[4]+'/'+x[6])
-  print('IV:', x[3]+'/'+x[5]+'/'+x[7])
-  print('V:', x[4]+'/'+x[6]+'/'+x[1])
-  print('VI:', x[5]+'/'+x[7]+'/'+x[2])
-  print('VII:', x[6]+'/'+x[1]+'/'+x[3])
+  I = 'I:', x[0]+'/'+x[2]+'/'+x[4]
+  II = 'II:', x[1]+'/'+x[3]+'/'+x[5]
+  III = 'III:', x[2]+'/'+x[4]+'/'+x[6]
+  IV = 'IV:', x[3]+'/'+x[5]+'/'+x[7]
+  V = 'V:', x[4]+'/'+x[6]+'/'+x[1]
+  VI = 'VI:', x[5]+'/'+x[7]+'/'+x[2]
+  VII = 'VII:', x[6]+'/'+x[1]+'/'+x[3]
+  ya = [I, II, III, IV, V, VI, VII]
+  for chord in ya:
+    print(chord)
   print()
+  ce = input('What function do you want (four part writing[a]/scale[b]: ')
+  if ce == 'b':
+    mn = int(input('what position?'))
+    print(x[mn-1])
+  if ce == 'a':
+    while ce != '':
+      ahb = input('what note? ')
+      for chord in ya:
+        if ahb in str(chord):
+          print(chord)
+      print()
+  o = print()
   c = input('scale: ')
